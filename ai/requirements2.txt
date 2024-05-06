@@ -1,0 +1,14 @@
+# tkintertable
+#opencv-python
+#Pillow
+#matplotlib
+tensorflow==2.15.0
+scipy
+# playsound2
+#playsound
+librosa
+# pyaudio-helper
+# pipwin
+sounddevice
+pyaudio
+# tensorflow-gpu
