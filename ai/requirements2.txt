@@ -2,7 +2,7 @@
 #opencv-python
 #Pillow
 #matplotlib
-tensorflow==2.15.0
+tensorflow==2.15.1
 scipy
 # playsound2
 #playsound

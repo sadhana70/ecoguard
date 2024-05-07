@@ -1,4 +1,5 @@
 import React from "react";
+import TestComponent from "../components/Suspect";
 import SuspectTable from "../components/Suspect";
 import ScreenshotComponent from "../components/ScreenShot";
 import UploadVideo from "../components/UploadVideo";
@@ -11,7 +12,8 @@ function SuspectPage() {
         <h1 className="text-3xl font-semibold text-white  mb-2">Suspects</h1>
       </div>
 
-      <SuspectTable />
+      {/* <SuspectTable /> */}
+      <TestComponent />
     </div>
   );
 }
