@@ -7,8 +7,18 @@ import io
 import sqlite3
 import os
 from datetime import datetime
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # This allows requests from any origin
+    allow_credentials=True,
+    allow_methods=["*"],  # This allows all HTTP methods
+    allow_headers=["*"],  # This allows all headers
+)
+
 
 # Connect to SQLite database
 conn = sqlite3.connect('poacher_images.db')
@@ -39,7 +49,6 @@ async def upload_image(files: List[UploadFile] = File(...)):
         if poacher:
             timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             filename = f"assets/poacher_{timestamp}.jpg"
-            #TODO: this filename's location is to be made such that frontend can access it too. 
             camera = "cam1"  # Change this to the appropriate camera identifier
             pil_image.save(filename)
             new_poachers.append({"cam": camera, "time":timestamp, "img_path":filename})
