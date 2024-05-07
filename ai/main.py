@@ -6,6 +6,8 @@ from PIL import Image
 import io
 import sqlite3
 from datetime import datetime
+from fastapi.middleware.cors import CORSMiddleware
+
 from pydantic import BaseModel
 import os
 from fastapi.responses import FileResponse
@@ -19,6 +21,14 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # This allows requests from any origin
+    allow_credentials=True,
+    allow_methods=["*"],  # This allows all HTTP methods
+    allow_headers=["*"],  # This allows all headers
+)
+
 class PoacherImage(BaseModel):
     id: int
     filename: str

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poaching Watch</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            display: inline-block;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>New Poachers Info</h1>
+    <div id="newPoachersInfo"></div>
+    <div id="newPoachersInfoMsg"></div>
+    <button onclick="fetchAndDisplayInfo()">Fetch Info</button>
+
+    <script>
+        async function fetchNewPoachersInfo() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/new_info');
+                const data = await response.json();
+                return data.info;
+            } catch (error) {
+                console.error('Error fetching new poachers info:', error);
+                return null;
+            }
+        }
+
+        async function displayNewPoachersInfo() {
+            const newPoachersInfoDiv = document.getElementById('newPoachersInfo');
+            const newPoachersInfo = await fetchNewPoachersInfo();
+
+            if (newPoachersInfo && newPoachersInfo.length > 0) {
+                newPoachersInfo.forEach(info => {
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    const image = document.createElement('img');
+                    image.src = info.img_path;
+                    card.appendChild(image);
+
+                    const cameraInfo = document.createElement('p');
+                    cameraInfo.textContent = `Camera: ${info.cam}`;
+                    card.appendChild(cameraInfo);
+
+                    const timeInfo = document.createElement('p');
+                    timeInfo.textContent = `Time: ${info.time}`;
+                    card.appendChild(timeInfo);
+
+                    newPoachersInfoDiv.appendChild(card);
+                });
+            } else {
+                
+                const newPoachersInfoMsgDiv = document.getElementById('newPoachersInfoMsg');
+
+                newPoachersInfoMsgDiv.textContent = 'No new poachers information available.';
+            }
+        }
+
+        async function fetchAndDisplayInfo() {
+            await displayNewPoachersInfo();
+        }
+
+        // Call the function to display new poachers info when the page loads
+        window.onload = () => {
+            fetchAndDisplayInfo(); // Fetch and display info initially
+            setInterval(fetchAndDisplayInfo, 10000); // Fetch and display info every 10 seconds
+        };
+    </script>
+</body>
+
+</html>
