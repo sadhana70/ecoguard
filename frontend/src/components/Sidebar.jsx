@@ -1,15 +1,15 @@
-import React, {useState} from "react";
-import {NavLink, useLocation} from "react-router-dom";
-import {BsAppIndicator, BsHouseDoorFill} from "react-icons/bs";
+import React, { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { BsAppIndicator, BsHouseDoorFill } from "react-icons/bs";
 import {
   AiFillCamera,
   AiOutlineCloseCircle,
   AiOutlineUser,
 } from "react-icons/ai";
-import {FaChartBar} from "react-icons/fa";
-import {IoMdFlag} from "react-icons/io";
-import {useMediaQuery} from "react-responsive";
-import {BiMenu} from "react-icons/bi";
+import { FaChartBar } from "react-icons/fa";
+import { IoMdFlag } from "react-icons/io";
+import { useMediaQuery } from "react-responsive";
+import { BiMenu } from "react-icons/bi";
 
 
 
@@ -17,7 +17,7 @@ const Sidebar = () => {
   const { pathname } = useLocation();
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
-  const isLargeScreen = useMediaQuery({minWidth: 768});
+  const isLargeScreen = useMediaQuery({ minWidth: 768 });
   const toggleSidebar = () => {
     setSidebarHidden(isLargeScreen ? false : !sidebarHidden);
   };
@@ -40,9 +40,8 @@ const Sidebar = () => {
         </div>
       )}
       <div
-        className={`sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${
-          isLargeScreen || !sidebarHidden ? "" : "hidden"
-        }`}
+        className={`sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${isLargeScreen || !sidebarHidden ? "" : "hidden"
+          }`}
       >
 
         {!sidebarHidden && (
@@ -76,7 +75,7 @@ const Sidebar = () => {
         </div>
         {pathname !== "/user" ? (
           <NavLink
-            to='/'
+            to='/protected'
             style={activeLinkStyle}
             className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
           >
@@ -88,7 +87,7 @@ const Sidebar = () => {
         ) : null}
         {pathname !== "/user" ? (
           <NavLink
-            to='/cameras'
+            to='/protected/cameras'
             style={activeLinkStyle}
             className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
           >
@@ -100,7 +99,7 @@ const Sidebar = () => {
         ) : null}
         {pathname !== "/user" ? (
           <NavLink
-            to='/suspects'
+            to='/protected/suspects'
             style={activeLinkStyle}
             className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
           >
@@ -124,7 +123,7 @@ const Sidebar = () => {
         ) : null}
         {pathname !== "/user" ? (
           <NavLink
-            to='/graph'
+            to='/protected/graph'
             style={activeLinkStyle}
             className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
           >
@@ -135,7 +134,7 @@ const Sidebar = () => {
           </NavLink>
         ) : null}
 
-       
+
       </div>
     </>
   );
