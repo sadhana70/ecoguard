@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Dec  6 16:25:35 2019
-@author: FORTH-ICS
-"""
+
 import os
 import numpy as np
 import librosa
