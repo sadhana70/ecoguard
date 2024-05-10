@@ -6,6 +6,7 @@ import librosa
 import glob
 import multiprocessing
 import pyaudio
+import geocoder
 import wave
 from extract_pcen_features import extract_pcen_feature as extract_features
 from classify_features import classify_features
@@ -39,6 +40,9 @@ def main():
     sound_file.setframerate(8000)
     sound_file.writeframes(b''.join(frames))
     sound_file.close()
+
+    # Get location information
+    location = get_location()
 
     parser = argparse.ArgumentParser(description='batch_processor', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-u', '--nopREQ', type=int, default=6, help='number of processing units employed')
@@ -92,10 +96,15 @@ def main():
         else:
             print(wavName.split(os.sep)[-1] + ' has a sampling rate different than 8000 Hz, will not process this audio file ')
 
-    if classify_features(output_data_path, f"model/teamStartup_chainsaw_model.hdf5", 2, prob_thresh):
-        print("Chainsaw Detected!")
+    if classify_features(output_data_path, f"model/teamStartup_chainsaw_model.hdf5", 2, prob_thresh,location):
+        print("NO Chainsaw Detected!", location)
     else:
-        print("No Chainsaw Detected!")
+        print("Chainsaw Detected!", location)
+
+def get_location():
+    # Get current location using geocoder
+    g = geocoder.ip('me')
+    return g.latlng  # Returns latitude and longitude
 
 if __name__ == "__main__":
     main()

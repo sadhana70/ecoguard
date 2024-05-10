@@ -22,7 +22,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.models import load_model
 #%% 
-def classify_features(pathIN,modelfileName,Nclasses,probThresh):
+def classify_features(pathIN,modelfileName,Nclasses,probThresh,location):
     
 
     directory = os.getcwd()
@@ -86,6 +86,8 @@ def classify_features(pathIN,modelfileName,Nclasses,probThresh):
                 sf.write(os.path.join(pathOUT,(recName + '_' + instanceName)),sIN,Fs)  
                 print('Utterance classified as chainsaw with mean probability ' + str(np.mean(positiveSawPRs[finalList[u]])))
                 totalDetectedDuration+=positiveSegments[u,1]-positiveSegments[u,0]
+                # Save location information
+                save_location(location, os.path.join(pathOUT, (recName + '_' + instanceName + '_location.txt')))
             source_folder = directory+"\\audio_file\\Extracted_segments\\"
             destination_folder = directory+"\\audio_file\\Detected_Chainsaw_Audios\\"
             for file_name in os.listdir(source_folder):
@@ -116,6 +118,14 @@ def classify_features(pathIN,modelfileName,Nclasses,probThresh):
             print('CHAINSAW DETECTED ')
             return 1
         
+
+        
     return totalDetectedDuration 
-    # time.sleep(4)         
+    # time.sleep(4)        
+
+def save_location(location, file_path):
+    with open(file_path, 'w') as f:
+        f.write(f'Latitude: {location[0]}, Longitude: {location[1]}')
+
+
     
