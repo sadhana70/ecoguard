@@ -11,6 +11,8 @@ import { IoMdFlag } from "react-icons/io";
 import { useMediaQuery } from "react-responsive";
 import { BiMenu } from "react-icons/bi";
 
+import "C:/Users/Dell/Desktop/login/frontend/src/color.css";
+
 
 
 const Sidebar = () => {
@@ -24,8 +26,8 @@ const Sidebar = () => {
 
   const activeLinkStyle = ({ isActive }) => {
     return {
-      backgroundColor: isActive ? "#3490dc" : "",
-      color: isActive ? "#ffffff" : "",
+      backgroundColor: isActive ? "var(--main-green)" : "white",
+      color: isActive ? "white" : "var(--main-green)",
     };
   };
 
@@ -40,8 +42,8 @@ const Sidebar = () => {
         </div>
       )}
       <div
-        className={`sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 ${isLargeScreen || !sidebarHidden ? "" : "hidden"
-          }`}
+        className={`sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-white
+        -900 border-r-4 border-pink${isLargeScreen || !sidebarHidden ? "" : "hidden"}`}
       >
 
         {!sidebarHidden && (
@@ -52,12 +54,12 @@ const Sidebar = () => {
             />
           </div>
         )}
-        <div className="text-gray-100 text-xl">
+        <div className="text-black-100 text-xl">
           <div className="p-2.5 mt-1 flex items-center">
-            <BsAppIndicator className="px-2 py-1 rounded-md bg-blue-600" />
-            <h1 className="font-bold text-gray-200 text-[30px] ml-3">
+            <BsAppIndicator className="px-2 py-1 rounded-md bg-pink-600" />
+            <h1 className="font-bold text-black-200 text-[30px] ml-3">
 
-              BalenAI
+              Ecoguard
             </h1>
             {sidebarHidden ? (
               <i
@@ -77,10 +79,10 @@ const Sidebar = () => {
           <NavLink
             to='/protected'
             style={activeLinkStyle}
-            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
             <BsHouseDoorFill />
-            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
               Home
             </span>
           </NavLink>
@@ -89,10 +91,10 @@ const Sidebar = () => {
           <NavLink
             to='/protected/cameras'
             style={activeLinkStyle}
-            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
             <AiFillCamera />
-            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
               Cameras
             </span>
           </NavLink>
@@ -101,10 +103,10 @@ const Sidebar = () => {
           <NavLink
             to='/protected/suspects'
             style={activeLinkStyle}
-            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
             <AiOutlineUser />
-            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
               Suspects
             </span>
           </NavLink>
@@ -113,10 +115,10 @@ const Sidebar = () => {
           <NavLink
             style={activeLinkStyle}
             to='/user'
-            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
             <IoMdFlag />
-            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
               Report
             </span>
           </NavLink>
@@ -125,10 +127,10 @@ const Sidebar = () => {
           <NavLink
             to='/protected/graph'
             style={activeLinkStyle}
-            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
             <FaChartBar className='' />
-            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
               Graph
             </span>
           </NavLink>

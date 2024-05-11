@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
-import {SmokersData} from "../data";
+import { SmokersData } from "../data";
 
 const MyChartComponent = () => {
   const chartRef = useRef(null);
@@ -20,7 +20,7 @@ const MyChartComponent = () => {
         datasets: [
           {
             label: "Camera location",
-            backgroundColor: "rgb(255, 99, 132)",
+            backgroundColor: "#01d28e",
             borderColor: "rgb(255, 255, 255)",
             data: SmokersData.map((data) => data.no_of_smokers),
           },
@@ -28,15 +28,15 @@ const MyChartComponent = () => {
       },
       options: {
         scales: {
-          x: {title: {display: true, text: "Categories", color: "white"}},
+          x: { title: { display: true, text: "Categories", color: "black" } },
           y: {
-            title: {display: true, text: "Values", color: "white"},
+            title: { display: true, text: "Values", color: "black" },
             beginAtZero: true,
           },
         },
         plugins: {
-          title: {text: "My Bar Chart", display: true, color: "white"},
-          legend: {labels: {color: "white"}},
+          title: { text: "Poacher detected", display: true, color: "black" },
+          legend: { labels: { color: "black" } },
         },
       },
     });

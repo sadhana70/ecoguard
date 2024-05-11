@@ -25,7 +25,7 @@ const SuspectTable = () => {
         setIsLoading(false);
       });
   }, []);
-    
+
 
   if (isLoading) {
     return <div>Loading poacher images...</div>;
@@ -38,8 +38,8 @@ const SuspectTable = () => {
   return (
     <div className='relative overflow-x-auto mr-6'>
       {poacherImages.length > 0 ? (
-        <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+        <table className='w-full text-sm text-left rtl:text-right text-pink-500 dark:text-black rounded-lg overflow-hidden border border-pink-500'>
+          <thead className='text-xs text-black uppercase bg-gray-50 dark:bg-[#01d28e] dark:text-black-400'>
             <tr>
               <th scope='col' className='px-6 py-3'>ID</th>
               {/* <th scope='col' className='px-6 py-3'>Filename</th> */}
@@ -50,9 +50,9 @@ const SuspectTable = () => {
           </thead>
           <tbody>
             {poacherImages.map(poacherImage => (
-              <tr key={poacherImage.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+              <tr key={poacherImage.id} className='bg-white border-b dark:bg-white dark:border-gray-700'>
                 <td className='px-6 py-4'>{poacherImage.id}</td>
-                
+
                 <td className='px-6 py-4'>{poacherImage.timestamp.split('_')[0]} {poacherImage.timestamp.split('_')[1].replace('-', ':').replace('-', ':')}</td>
 
 

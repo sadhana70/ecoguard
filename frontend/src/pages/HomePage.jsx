@@ -22,12 +22,15 @@ function HomePage() {
     // Add more items as needed
   ];
   return (
-    <div className='relative'>
-      <div className='mb-1'>
+    <div className="relative" style={{
+      backgroundImage: './src/img/forest.jpg', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '100vh'
+    }}>
+
+      {/* < div className='mb-1' >
         <h1 className='text-3xl font-semibold  text-white mb-4'>Overview</h1>
       </div>
 
-      <div className='flex gap-8'>
+       <div className='flex gap-8'>
         <StatCard
           title='Total Cameras'
           number='4'
@@ -35,22 +38,22 @@ function HomePage() {
         <StatCard
           title='Total Suspects'
           number='10'
-        />
+        /> 
       </div>
       <div className='flex  mt-16  gap-30 items-center '>
         <div>
           <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
-          <MotiveImages items={items} />
+          <MotiveImages items={items} /> 
         </div>
         <div className="ml-5">
           <h1 className='text-3xl font-semibold  text-white mb-4'>Locations</h1>
           <Location />
         </div>
-      </div>
-      <div className='relative'>
-        <Slogan />
-      </div>
-    </div>
+      </div >
+    <div className='relative'>
+      <Slogan />
+  </div> */}
+    </ div >
   );
 }
 

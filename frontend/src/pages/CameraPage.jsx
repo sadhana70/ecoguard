@@ -6,16 +6,16 @@ import CameraCard from "../components/CameraCard";
 function CameraPage() {
   const citiesData = [
     {
-      name: "Satdobato",
+      name: "Chitwan National park",
     },
     {
-      name: "Koteshwor",
+      name: "Bardiya National Parkivapuri",
     },
     {
-      name: "Pulchowk",
+      name: "Sagarmatha National Park",
     },
     {
-      name: "Thimi",
+      name: "Rara National Park",
     },
   ];
   return (

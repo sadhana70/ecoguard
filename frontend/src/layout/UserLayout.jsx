@@ -10,7 +10,7 @@ function UserLayout() {
       <div className='pl-80'>
         <Outlet />
       </div>
-    </div>
+    </div >
   );
 }
 
