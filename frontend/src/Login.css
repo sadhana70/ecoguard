@@ -1,4 +1,22 @@
-.bg {
+/* .home {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+}
+
+input[type="text"],
+input[type="password"] {
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
     margin-top: 10px;
     cursor: pointer;
     font-size: 15px;
@@ -6,6 +24,126 @@
     border: 1px solid #01d28e;
     color: #fff;
     padding: 10px 20px;
-    max-width: 50px;
-    position: fixed;
+}
+
+button[type="submit"]:hover {
+    background: #6cf0c2;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    position: relative;
+    top: 50%;
+    left: 30%;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 45%;
+    width: 45%
+}
+
+.list-container {
+    display: flex;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    position: relative;
+    left: 30%;
+    top: 50%;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+}
+
+*/
+.home {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif, sans-serif;
+    /* Consolidated font-family */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    background-color: #f8f9fd;
+}
+
+input[type="text"],
+input[type="password"] {
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #01d28e;
+    border: 1px solid #01d28e;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+button[type="submit"]:hover {
+    background: #6cf0c2;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 700px;
+    max-width: 400px;
+    margin-top: 20%;
+    margin-left: 40%;
+    /* Adjust as needed */
+}
+
+.guest {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    /* max-width: 25%; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* margin: 10px auto; */
 }
