@@ -145,6 +145,18 @@ const Sidebar = () => {
             </span>
           </NavLink>
         ) : null}
+        {pathname !== "/user" ? (
+          <NavLink
+            to='/protected/alert'
+            style={activeLinkStyle}
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+          >
+            <FaChartBar className='' />
+            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+              Alert
+            </span>
+          </NavLink>
+        ) : null}
 
 
       </div>

@@ -1,5 +1,5 @@
 
-from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, status
+from fastapi import FastAPI, File, UploadFile, Depends, HTTPException, status, WebSocket
 from fastapi.responses import JSONResponse
 from typing import List
 from PIL import Image
@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 from fastapi.responses import FileResponse
+import crud, models, schemas
 
 from passlib.context import CryptContext
 from models import User
@@ -19,7 +20,8 @@ from database import SessionLocal, engine
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
-
+# from fastapi import FastAPI, WebSocket
+# from starlette.applications import WebSocketApp
 
 
 
@@ -32,6 +34,39 @@ app = FastAPI()
     allow_headers=["*"],  # This allows all headers
 )'''
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+# websocket_connections = []
+
+# @app.websocket("/ws")
+# async def websocket_endpoint(websocket: WebSocket):
+#     await websocket.accept()
+#     websocket_connections.append(websocket)
+#     try:
+#         while True:
+#             # Handle WebSocket communication here
+#             data = await websocket.receive_text()
+#             await websocket.send_text(f"Received: {data}")
+#     finally:
+#         websocket_connections.remove(websocket)
+
+
+# websocket_connections = []
+
+# @app.websocket("/ws")
+# async def websocket_endpoint(websocket: WebSocket):
+#     await websocket.accept()
+#     websocket_connections.append(websocket)
+#     try:
+#         while True:
+#             # You can send data to the client here if needed
+#             pass
+#     finally:
+#         websocket_connections.remove(websocket)
+
+# async def send_notification_to_clients(notification: str):
+#     for websocket in websocket_connections:
+#         await websocket.send_text(notification)
+
 
 class PoacherImage(BaseModel):
     id: int
@@ -206,7 +241,7 @@ async def upload_image(files: List[UploadFile] = File(...)):
 @app.get('/poacher_images')
 async def get_poacher_images():
     # Fetch data from SQLite database
-    cursor.execute("SELECT * FROM poacher_images")
+    cursor.execute("SELECT * FROM poacher_images ORDER BY id DESC")
     rows = cursor.fetchall()
 
     # Create a set to store unique timestamps
@@ -330,3 +365,21 @@ async def get_poacher_data():
 def shutdown_event():
     conn.close()
     conn1.close()
+
+
+
+
+# @app.get("/new_data")
+# def get_new_data(db: Session):
+#     new_data = crud.get_new_data(db)
+#     return new_data
+
+# if __name__ == "__main__":
+#     import uvicorn
+
+#     # Run FastAPI and WebSocket servers concurrently
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
+    
+    
+
+    

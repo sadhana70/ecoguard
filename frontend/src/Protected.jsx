@@ -12,6 +12,9 @@ import SuspectPage from "./pages/SuspectPage";
 import GraphPage from "./pages/GraphPage";
 import UserPage from "./pages/UserPage";
 import AudioPage from "./pages/AudioPage";
+import AlertPage from "./pages/AlertPage";
+
+
 
 
 import Login from "./Login.jsx"; // Import your login page component
@@ -49,6 +52,8 @@ return tokenValidated ? (
         <Route path='/user' element={<UserPage />} />
         <Route path='/graph' element={<GraphPage />} />
         <Route path='/audio' element={<AudioPage />} />
+        <Route path='/alert' element={<AlertPage />} />
+
 
         {/* <Route path='/notification' element={<GraphPage />} /> */}
         
