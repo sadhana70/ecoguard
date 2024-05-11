@@ -10,6 +10,9 @@ import geocoder
 import wave
 from extract_pcen_features import extract_pcen_feature as extract_features
 from classify_features import classify_features
+import requests, json
+
+UPLOAD_URL = "http://127.0.0.1:8000/upload_audio/"
 
 def main():
     print("Recording Audio")
@@ -96,15 +99,39 @@ def main():
         else:
             print(wavName.split(os.sep)[-1] + ' has a sampling rate different than 8000 Hz, will not process this audio file ')
 
+    
+    
+    
     if classify_features(output_data_path, f"model/teamStartup_chainsaw_model.hdf5", 2, prob_thresh,location):
-        print("NO Chainsaw Detected!", location)
+        print("No Chainsaw Detected!")
+        
     else:
-        print("Chainsaw Detected!", location)
+        print("Chainsaw Detected!")
+        # Call the API endpoint to upload the image
+        # Prepare the data to be sent in the POST request
+        files = {"files": ("chainsaw.wav", open(wavName, 'rb'), "audio/wav")}
+        print(files)
+        # Send POST request to the server to upload the audio
+        response = requests.post(UPLOAD_URL, files=files)
+        print("Raw response:", response.text)
+
+        try:
+            # Try to decode the response as JSON
+            response_json = response.json()
+            print(response_json)
+        except json.decoder.JSONDecodeError:
+            # If decoding fails, print the raw response
+            print("Error decoding JSON. Raw response:", response.text)
+
 
 def get_location():
     # Get current location using geocoder
-    g = geocoder.ip('me')
-    return g.latlng  # Returns latitude and longitude
+    # g = geocoder.ip('me')
+    # latitude, longitude = g.latlng  # Returns latitude and longitude
+    # # Get the exact address from latitude and longitude
+    # location = get_location(latitude, longitude)
+    location="Dhapakhel"
+    return location  # Returns latitude and longitude
 
 if __name__ == "__main__":
     main()

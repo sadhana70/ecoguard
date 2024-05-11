@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -25,7 +24,7 @@ const SuspectTable = () => {
         setIsLoading(false);
       });
   }, []);
-    
+
 
   if (isLoading) {
     return <div>Loading poacher images...</div>;
@@ -49,11 +48,11 @@ const SuspectTable = () => {
             </tr>
           </thead>
           <tbody>
-            {poacherImages.map(poacherImage => (
-              <tr key={poacherImage.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                <td className='px-6 py-4'>{poacherImage.id}</td>
-                
-                <td className='px-6 py-4'>{poacherImage.timestamp.split('_')[0]} {poacherImage.timestamp.split('_')[1].replace('-', ':').replace('-', ':')}</td>
+{poacherImages.map((poacherImage, index) => (
+    <tr key={poacherImage.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+      <td className='px-6 py-4'>{index + 1}</td>
+
+                <td className='px-6 py-4'>{poacherImage.timestamp.split('')[0]} {poacherImage.timestamp.split('')[1].replace('-', ':').replace('-', ':')}</td>
 
 
 
@@ -72,4 +71,3 @@ const SuspectTable = () => {
 };
 
 export default SuspectTable;
-
