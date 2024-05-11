@@ -3,58 +3,41 @@ import StatCard from "../components/Card";
 import Location from "../components/Location";
 import MotiveImages from "../components/Motive";
 import Slogan from "../components/Slogan";
+import '../Login.css';
+
 
 function HomePage() {
-  const items = [
-    {
-      imageSrc:
-        "https://c8.alamy.com/comp/2B7MAD0/this-area-is-a-smoke-free-zone-sign-with-no-smoking-symbols-2B7MAD0.jpg",
-      text: "Make Smoke Free",
-      description: "Prevent people from smoking in public place",
-    },
-    {
-      imageSrc:
-        "https://estuary.dev/static/fde13056c70783b74f41b10d9649f74a/3a40c/dd278b_03_Real_Time_Processing_Benefits_d8291dd351.jpg",
-      text: "Real-time Processing",
-      description:
-        "Optimize the system to detect smoking incidents in real-time, ensuring prompt alerts to relevant authorities.",
-    },
-    // Add more items as needed
-  ];
   return (
-    <div className="relative" style={{
-      backgroundImage: './src/img/forest.jpg', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', minHeight: '100vh'
-    }}>
+    <div>
 
-      {/* < div className='mb-1' >
-        <h1 className='text-3xl font-semibold  text-white mb-4'>Overview</h1>
-      </div>
+      <h1 className="z-2  absolute top-2/4 left-1/4 right-0 bottom-0 flex items justify-center">Ecoguard
+      </h1>
 
-       <div className='flex gap-8'>
-        <StatCard
-          title='Total Cameras'
-          number='4'
-        />
-        <StatCard
-          title='Total Suspects'
-          number='10'
-        /> 
-      </div>
-      <div className='flex  mt-16  gap-30 items-center '>
-        <div>
-          <h1 className='text-3xl font-semibold  text-white mb-4'>Our Goal</h1>
-          <MotiveImages items={items} /> 
-        </div>
-        <div className="ml-5">
-          <h1 className='text-3xl font-semibold  text-white mb-4'>Locations</h1>
-          <Location />
-        </div>
-      </div >
-    <div className='relative'>
-      <Slogan />
-  </div> */}
-    </ div >
+      <img src="../src/img/home_bg.jpg" className="absolute z-1 w-1/4 h-1/50 top-1/4 left-2/4 padding-10px round-lg overflow-hidden" style={{ marginLeft: '40px' }} alt="Forest" />
+
+    </div >
   );
 }
 
 export default HomePage;
+
+/*import React from "react";
+import StatCard from "../components/Card";
+import Location from "../components/Location";
+import MotiveImages from "../components/Motive";
+import Slogan from "../components/Slogan";
+import '../Login.css';
+
+function HomePage() {
+  return (
+    <div style={{ position: "relative", display: "inline-block" }}>
+      <img src="../src/img/home_bg.jpg" className="absolute z-1 w-1/4 h-1/50 top-1/4 left-3/4 padding-10px" style={{ marginLeft: '20px' }} alt="Forest" />
+      <div className="absolute top-1/2 left-3/4 transform -translate-y-1/2">
+        <h1>ecoguard</h1>
+      </div>
+    </div>
+  );
+}
+
+export default HomePage;*/
+
