@@ -11,6 +11,9 @@ import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
 import GraphPage from "./pages/GraphPage";
 import UserPage from "./pages/UserPage";
+import AudioPage from "./pages/AudioPage";
+
+
 import Login from "./Login.jsx"; // Import your login page component
 
 function ProtectedPage() {
@@ -45,7 +48,10 @@ return tokenValidated ? (
         <Route path='/suspects' element={<SuspectPage />} />
         <Route path='/user' element={<UserPage />} />
         <Route path='/graph' element={<GraphPage />} />
+        <Route path='/audio' element={<AudioPage />} />
+
         {/* <Route path='/notification' element={<GraphPage />} /> */}
+        
       </Route>
     </Routes>
   ) : null;
