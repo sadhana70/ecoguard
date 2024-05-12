@@ -124,8 +124,8 @@ const AudioDataTable = () => {
   return (
     <div className='relative overflow-x-auto mr-6'>
       {audioData.length > 0 ? (
-        <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-black rounded-lg overflow-hidden'>
-          <thead className='text-xs text-white uppercase bg-white dark:bg-[#01d28e] dark:text-white'>
+        <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
             <tr>
               <th scope='col' className='px-6 py-3'>ID</th>
               <th scope='col' className='px-6 py-3'>Filename</th>

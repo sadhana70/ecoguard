@@ -156,9 +156,57 @@ const Sidebar = () => {
             style={activeLinkStyle}
             className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
           >
+            <FaChartBar className='' />
+            <span className='text-[20px] ml-4 text-gray-900 font-bold'>
+              Graph
+            </span>
+          </NavLink>
+        ) : null}
+        {pathname !== "/user" ? (
+          <NavLink
+            to='/protected/audio'
+            style={activeLinkStyle}
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
+          >
+            <AiFillAudio />
+            <span className='text-[20px] ml-4 text-black font-bold'>
+              Audio
+            </span>
+          </NavLink>
+        ) : null}
+        {pathname !== "/user" ? (
+          <NavLink
+            to='/protected/alert'
+            style={activeLinkStyle}
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-[#01d28e] text-white'
+          >
             <IoIosNotifications />
 
             <span className='text-[20px] ml-4 text-black font-bold'>
+              Alert
+            </span>
+          </NavLink>
+        ) : null}
+        {pathname !== "/user" ? (
+          <NavLink
+            to='/protected/audio'
+            style={activeLinkStyle}
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+          >
+            <FaChartBar className='' />
+            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
+              Audio
+            </span>
+          </NavLink>
+        ) : null}
+        {pathname !== "/user" ? (
+          <NavLink
+            to='/protected/alert'
+            style={activeLinkStyle}
+            className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white'
+          >
+            <FaChartBar className='' />
+            <span className='text-[20px] ml-4 text-gray-200 font-bold'>
               Alert
             </span>
           </NavLink>

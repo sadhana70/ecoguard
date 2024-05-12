@@ -17,6 +17,12 @@ import AlertPage from "./pages/AlertPage";
 
 
 
+import AudioPage from "./pages/AudioPage";
+import AlertPage from "./pages/AlertPage";
+
+
+
+
 import Login from "./Login.jsx"; // Import your login page component
 
 function ProtectedPage() {
