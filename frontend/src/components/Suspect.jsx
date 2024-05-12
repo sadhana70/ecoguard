@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -38,8 +37,8 @@ const SuspectTable = () => {
   return (
     <div className='relative overflow-x-auto mr-6'>
       {poacherImages.length > 0 ? (
-        <table className='w-full text-sm text-left rtl:text-right text-pink-500 dark:text-black rounded-lg overflow-hidden border border-pink-500'>
-          <thead className='text-xs text-black uppercase bg-gray-50 dark:bg-[#01d28e] dark:text-black-400'>
+        <table className='w-full text-sm text-left rtl:text-right text-pink-500 dark:text-black rounded-lg overflow-hidden border border-pink-500 z=1'>
+          <thead className='text-xs text-white uppercase bg-gray-50 dark:bg-[#01d28e] dark:text-black-400'>
             <tr>
               <th scope='col' className='px-6 py-3'>ID</th>
               {/* <th scope='col' className='px-6 py-3'>Filename</th> */}
@@ -49,11 +48,11 @@ const SuspectTable = () => {
             </tr>
           </thead>
           <tbody>
-            {poacherImages.map(poacherImage => (
-              <tr key={poacherImage.id} className='bg-white border-b dark:bg-white dark:border-gray-700'>
-                <td className='px-6 py-4'>{poacherImage.id}</td>
+            {poacherImages.map((poacherImage, index) => (
+              <tr key={poacherImage.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <td className='px-6 py-4'>{index + 1}</td>
 
-                <td className='px-6 py-4'>{poacherImage.timestamp.split('_')[0]} {poacherImage.timestamp.split('_')[1].replace('-', ':').replace('-', ':')}</td>
+                <td className='px-6 py-4'>{poacherImage.timestamp.split('')[0]} {poacherImage.timestamp.split('')[1].replace('-', ':').replace('-', ':')}</td>
 
 
 
@@ -72,4 +71,3 @@ const SuspectTable = () => {
 };
 
 export default SuspectTable;
-

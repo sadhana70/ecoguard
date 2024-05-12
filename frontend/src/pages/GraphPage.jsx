@@ -1,62 +1,86 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
-import { SmokersData } from "../data";
 
-const MyChartComponent = () => {
+const PoacherChart = () => {
+  const [poacherData, setPoacherData] = useState([]);
   const chartRef = useRef(null);
 
   useEffect(() => {
-    // Destroy the existing chart when the component is mounted
-    if (chartRef.current) {
-      chartRef.current.destroy();
-    }
-
-    // Create a new chart
-    const ctx = document.getElementById("myChart").getContext("2d");
-    const newChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: SmokersData.map((data) => data.camera_location),
-        datasets: [
-          {
-            label: "Camera location",
-            backgroundColor: "#01d28e",
-            borderColor: "rgb(255, 255, 255)",
-            data: SmokersData.map((data) => data.no_of_smokers),
-          },
-        ],
-      },
-      options: {
-        scales: {
-          x: { title: { display: true, text: "Categories", color: "black" } },
-          y: {
-            title: { display: true, text: "Values", color: "black" },
-            beginAtZero: true,
-          },
-        },
-        plugins: {
-          title: { text: "Poacher detected", display: true, color: "black" },
-          legend: { labels: { color: "black" } },
-        },
-      },
-    });
-
-    // Save the chart reference for later use (e.g., for destroying it when the component unmounts)
-    chartRef.current = newChart;
-
-    // Clean up the chart when the component unmounts
-    return () => {
+    // Fetch poacher data from the API
+    fetch("http://localhost:8000/poacher-data")
+      .then((response) => response.json())
+      .then((data) => {
+        setPoacherData(data.poacher_data);
+      })
+      .catch((error) => {
+        console.error("Error fetching poacher data:", error);
+      });
+  }, []);
+  useEffect(() => {
+    if (poacherData.length > 0) {
       if (chartRef.current) {
         chartRef.current.destroy();
       }
-    };
-  }, []); // Run this effect only once when the component mounts
+
+      // Get chart canvas
+      const ctx = document.getElementById("poacherChart").getContext("2d");
+
+      // Extract labels and data from poacher data
+      const labels = poacherData.map((item) => item[0]);
+      const data = poacherData.map((item) => item[1]);
+
+      // Create new chart
+      chartRef.current = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: "Number of Poachers",
+              data: data,
+              // (132, 255, 99)
+              backgroundColor: "rgba(1, 210, 142)",
+              borderColor: "rgba(1, 210, 142)",
+              borderWidth: 1,
+              barPercentage: 0.4, // Adjust bar width (default is 0.9)
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "Number of Poachers",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Camera",
+              },
+            },
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: "Poacher Data",
+            },
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+    }
+  }, [poacherData]);
 
   return (
-    <div className="max-h-screen">
-      <canvas id="myChart" width="400" height="400" />
+    <div>
+      <canvas id="poacherChart" width="400" height="400"></canvas>
     </div>
   );
 };
 
-export default MyChartComponent;
+export default PoacherChart;

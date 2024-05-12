@@ -80,7 +80,7 @@ if __name__ == "__main__":
         key = cv2.waitKey(1) & 0xFF
         if key == ord("q"):
             break
-        time.sleep(30.0)
+        #time.sleep(30.0)
     # Clean up
     cv2.destroyAllWindows()
     vs.release()

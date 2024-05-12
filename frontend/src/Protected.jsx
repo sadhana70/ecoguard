@@ -11,6 +11,12 @@ import CameraPage from "./pages/CameraPage";
 import SuspectPage from "./pages/SuspectPage";
 import GraphPage from "./pages/GraphPage";
 import UserPage from "./pages/UserPage";
+import AudioPage from "./pages/AudioPage";
+import AlertPage from "./pages/AlertPage";
+
+
+
+
 import Login from "./Login.jsx"; // Import your login page component
 
 function ProtectedPage() {
@@ -37,21 +43,23 @@ function ProtectedPage() {
 
     verifyToken();
   }, [navigate]);
-
-  // Render the protected routes only if the token has been validated
   return tokenValidated ? (
     <Routes>
       <Route path='/' element={<Layout />} >
         <Route index element={<HomePage />} />
         <Route path='/cameras' element={<CameraPage />} />
-        <Route path='/suspects' element={<SuspectPage />} />
+        <Route path='/suspects' className="z=1" element={<SuspectPage />} />
         <Route path='/user' element={<UserPage />} />
         <Route path='/graph' element={<GraphPage />} />
+        <Route path='/audio' element={<AudioPage />} />
+        <Route path='/alert' element={<AlertPage />} />
+
+
+        {/* <Route path='/notification' element={<GraphPage />} /> */}
+
       </Route>
     </Routes>
   ) : null;
 }
 
 export default ProtectedPage;
-
-

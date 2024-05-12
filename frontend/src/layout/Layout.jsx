@@ -6,7 +6,7 @@ function Layout() {
 
   return (
     <>
-      <div className='bg-white min-h-screen'>
+      <div className='bg-white min-h-screen z=1'>
 
         <Sidebar />
         <div className='pl-80'>
