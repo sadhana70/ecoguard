@@ -26,7 +26,9 @@ const PoacherChart = () => {
       const ctx = document.getElementById("poacherChart").getContext("2d");
 
       // Extract labels and data from poacher data
-      const labels = poacherData.map((item) => item[0]);
+      // const labels = poacherData.map((item) => item[0]);
+      const labels = poacherData.map((item, index) => `cam${index + 1}`);
+
       const data = poacherData.map((item) => item[1]);
 
       // Create new chart

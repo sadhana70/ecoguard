@@ -124,8 +124,8 @@ const AudioDataTable = () => {
   return (
     <div className='relative overflow-x-auto mr-6'>
       {audioData.length > 0 ? (
-        <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+        <table className='w-full text-sm text-left rtl:text-right text-black dark:text-black'>
+          <thead className='text-xs text-black uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'>
             <tr>
               <th scope='col' className='px-6 py-3'>ID</th>
               <th scope='col' className='px-6 py-3'>Filename</th>
@@ -136,7 +136,7 @@ const AudioDataTable = () => {
           </thead>
           <tbody>
             {audioData.map((audioItem, index) => (
-              <tr key={audioItem.id} className='bg-white border-b bg-white dark:border-gray-700'>
+              <tr key={audioItem.id} className='bg-white border-b bg-white dark:border-black'>
                 <td className='px-6 py-4'>{index + 1}</td>
                 <td className='px-6 py-4'>{audioItem.filename}</td>
                 <td className='px-6 py-4'>{audioItem.timestamp}</td>

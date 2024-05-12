@@ -60,7 +60,7 @@ const SuspectTable = () => {
     <div className='relative overflow-x-auto mr-6'>
       {poacherImages.length > 0 ? (
         <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+          <thead className='text-xs text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-white'>
             <tr>
               <th scope='col' className='px-6 py-3'>ID</th>
               {/* <th scope='col' className='px-6 py-3'>Filename</th> */}
@@ -71,7 +71,7 @@ const SuspectTable = () => {
           </thead>
           <tbody>
             {poacherImages.map((poacherImage, index) => (
-              <tr key={poacherImage.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+              <tr key={poacherImage.id} className='bg-white border-b bg-white dark:border-gray-700 text-black'>
                 <td className='px-6 py-4'>{index + 1}</td>
 
                 <td className='px-6 py-4'>{poacherImage.timestamp.split('_')[0]} {poacherImage.timestamp.split('_')[1].replace('-', ':').replace('-', ':')}</td>

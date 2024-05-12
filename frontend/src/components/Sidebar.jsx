@@ -14,7 +14,7 @@ import { AiFillAudio } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 
 
-import "/Users/sadhanapanthi/ecoguard/ecoguard/frontend/src/color.css";
+import "C:/Users/14028/demo/ecoguard/frontend/src/color.css";
 
 
 
@@ -59,7 +59,7 @@ const Sidebar = () => {
         )}
         <div className="text-black-100 text-xl">
           <div className="p-2.5 mt-1 flex items-center">
-            <BsAppIndicator className="px-2 py-1 rounded-md bg-pink-600" />
+            <BsAppIndicator className="px-2 py-1 rounded-md bg-[#01d28e] "/>
             <h1 className="font-bold text-black-200 text-[30px] ml-3">
 
               Ecoguard

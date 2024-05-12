@@ -9,7 +9,7 @@ function CameraPage() {
       name: "Chitwan National park",
     },
     {
-      name: "Bardiya National Parkivapuri",
+      name: "Bardiya National Park",
     },
     {
       name: "Sagarmatha National Park",

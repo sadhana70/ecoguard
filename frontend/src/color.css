@@ -1,5 +1,6 @@
 body {
     --background-color: white;
-    --main-green: #01d28e;
-    --button-hover-green: #6cf0c2;
+    /* --main-green: #01d28e; */
+    --main-green: #76f5cb;
+    --button-hover-green: #01d28e;
 }

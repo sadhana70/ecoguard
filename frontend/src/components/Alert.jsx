@@ -127,13 +127,13 @@ const AlertTable = () => {
             poacherImages.map(poacherImage => (
               <div key={poacherImage.id} className="bg-white p-4 shadow rounded-md">
                 <p className="text-lg font-semibold">
-                  A poacher was detected at time {poacherImage.timestamp} recorded by camera {poacherImage.camera}.
+                  Attention!!! A suspect has been detected at {poacherImage.timestamp.split('_')[0]} {poacherImage.timestamp.split('_')[1].replace("-", ':')} recorded by cam1.
                 </p>
                 {/* <img src={poacherImage.image_url} alt={poacherImage.filename} className="mt-2 w-full h-auto" /> */}
               </div>
             ))
           ) : (
-            <div className="text-center text-gray-500">No poacher images found.</div>
+            <div className="text-center text-black">No poacher images found.</div>
           )}
         </div>
       )}
