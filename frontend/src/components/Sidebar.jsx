@@ -14,7 +14,7 @@ import { AiFillAudio } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 
 
-import "C:/Users/Dell/Desktop/login/frontend/src/color.css";
+import "/Users/sadhanapanthi/ecoguard/ecoguard/frontend/src/color.css";
 
 
 
@@ -150,7 +150,7 @@ const Sidebar = () => {
             </span>
           </NavLink>
         ) : null}
-        {pathname !== "/user" ? (
+        {/* {pathname !== "/user" ? (
           <NavLink
             to='/protected/alert'
             style={activeLinkStyle}
@@ -161,8 +161,8 @@ const Sidebar = () => {
               Graph
             </span>
           </NavLink>
-        ) : null}
-        {pathname !== "/user" ? (
+        ) : null} */}
+        {/* {pathname !== "/user" ? (
           <NavLink
             to='/protected/audio'
             style={activeLinkStyle}
@@ -173,7 +173,7 @@ const Sidebar = () => {
               Audio
             </span>
           </NavLink>
-        ) : null}
+        ) : null} */}
         {pathname !== "/user" ? (
           <NavLink
             to='/protected/alert'
@@ -187,7 +187,7 @@ const Sidebar = () => {
             </span>
           </NavLink>
         ) : null}
-        {pathname !== "/user" ? (
+        {/* {pathname !== "/user" ? (
           <NavLink
             to='/protected/audio'
             style={activeLinkStyle}
@@ -198,8 +198,8 @@ const Sidebar = () => {
               Audio
             </span>
           </NavLink>
-        ) : null}
-        {pathname !== "/user" ? (
+        ) : null} */}
+        {/* {pathname !== "/user" ? (
           <NavLink
             to='/protected/alert'
             style={activeLinkStyle}
@@ -210,7 +210,7 @@ const Sidebar = () => {
               Alert
             </span>
           </NavLink>
-        ) : null}
+        ) : null} */}
 
 
       </div>
